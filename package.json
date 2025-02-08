@@ -1,0 +1,39 @@
+{
+  "name": "cip141-lucidevolution",
+  "version": "1.0.0",
+  "description": "CIP141 implementation for Lucid Evolution",
+  "main": "dist/mod.js",
+  "exports": {
+    ".": {
+      "import": "./lib/index.mjs",
+      "require": "./lib/index.js"
+    },
+    "./lib/*": "./lib/*"
+  },
+  "dependencies": {
+    "@lucid-evolution/lucid": "^0.4.22",
+    "events": "^3.3.0"
+  },
+  "types": "./lib/index.d.ts",
+  "files": [
+    "lib"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "clean": "rm -rf node_modules && rm -rf lib",
+    "prepublish": "npm run build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "tsup": "^8.2.0",
+    "typescript": "^5.4.5"
+  },
+  "keywords": [
+    "cardano",
+    "lucid",
+    "cip141"
+  ],
+  "author": "Leo",
+  "license": "MIT"
+}
