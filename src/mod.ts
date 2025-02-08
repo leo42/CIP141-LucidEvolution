@@ -19,10 +19,8 @@ type ScriptRequirement = {
     signatories?: string[],
     redeemers?: { [key: string]: string },
     datums?: [string, string][]
+}
 
-
-
-  }
 async function createCIP141Transaction(evolution: LucidEvolution, scriptRequirement: ScriptRequirement) {
     
     const collateral = scriptRequirement.collateral
@@ -31,16 +29,13 @@ async function createCIP141Transaction(evolution: LucidEvolution, scriptRequirem
     await localLucid.selectWallet.fromAddress(address, [coreToUtxo(CML.TransactionUnspentOutput.from_cbor_hex(collateral!))])
     const tx =  localLucid.newTx()
 
-
-
-
-
-
-
-    const utxo = scriptRequirement.inputs?.map((input) => coreToUtxo(CML.TransactionUnspentOutput.from_cbor_hex(input)))
-    // tx.collectFrom(utxo ?? [])
+    if(scriptRequirement.inputs) {
+        const utxo = scriptRequirement.inputs?.map((input) => coreToUtxo(CML.TransactionUnspentOutput.from_cbor_hex(input)))
+        tx.collectFrom(utxo ?? [])
+    }
     
     
+
     const refInputs = scriptRequirement.reference_inputs?.map((input) => coreToUtxo(CML.TransactionUnspentOutput.from_cbor_hex(input)))
     tx.readFrom(refInputs ?? [])
     
