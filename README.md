@@ -1,6 +1,6 @@
 # CIP141-LucidEvolution
 
-A CIP141 implementation for Lucid Evolution, providing transaction building capabilities for Cardano smart contracts.
+A CIP141 implementation for Lucid Evolution, providing transaction building capabilities for Cardano plutus wallets.
 
 ## Installation
 
