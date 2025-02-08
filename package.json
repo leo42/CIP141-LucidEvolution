@@ -1,7 +1,8 @@
 {
   "name": "cip141-lucidevolution",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "CIP141 implementation for Lucid Evolution",
+  "repository": "https://github.com/leo42/CIP141-LucidEvolution",
   "main": "dist/mod.js",
   "exports": {
     ".": {

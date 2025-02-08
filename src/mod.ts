@@ -34,8 +34,6 @@ async function createCIP141Transaction(evolution: LucidEvolution, scriptRequirem
         tx.collectFrom(utxo ?? [])
     }
     
-    
-
     const refInputs = scriptRequirement.reference_inputs?.map((input) => coreToUtxo(CML.TransactionUnspentOutput.from_cbor_hex(input)))
     tx.readFrom(refInputs ?? [])
     
